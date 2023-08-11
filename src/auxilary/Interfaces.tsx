@@ -1,0 +1,90 @@
+//#region Models
+export interface INameData {
+  name: string;
+}
+
+export interface IStatData {
+  stat: string;
+  base_stat: number;
+}
+
+export interface IPokemonCardData {
+  name: string;
+  height: number;
+  weight: number;
+  stats: Array<IStatData>;
+  abilities: Array<string>;
+  forms: Array<string>;
+  moves: Array<string>;
+  spriteUrl: string;
+}
+
+export interface IPokemonData {
+  count: number;
+  pokemonNames: Array<string>;
+}
+//#endregion
+
+//#region ResponseModels
+export interface ISpriteDataResponse {
+  front_default: string;
+}
+
+export interface IStatDataResponse {
+  stat: INameData;
+  base_stat: number;
+}
+
+export interface IMoveDataResponse {
+  move: INameData;
+}
+
+export interface IAbilityDataResponse {
+  ability: INameData;
+}
+
+export interface IPokemonCardDataResponse {
+  name: string;
+  height: number;
+  weight: number;
+  stats: Array<IStatDataResponse>;
+  abilities: Array<IAbilityDataResponse>;
+  forms: Array<INameData>;
+  moves: Array<IMoveDataResponse>;
+  sprites: ISpriteDataResponse;
+}
+
+export interface IPokemonDataResponse {
+  count: number;
+  next: string;
+  previous: string;
+  results: Array<INameData>;
+}
+//#endregion
+
+//#region PropsModels
+export interface IListProps {
+  setCount: (a: number) => void;
+  currentPage: number;
+}
+
+export interface ICardProps {
+  pokemonName: string;
+}
+
+export interface IDetailsDialogProps {
+  pokemonData: IPokemonCardData;
+  setIsDialogOpen: (a: boolean) => void;
+}
+
+export interface ICollapseBlockProps {
+  title: string;
+  elements: Array<JSX.Element>;
+}
+
+export interface IPaginationProps {
+  count: number;
+  currentPage: number;
+  setCurrentPage: (a: number) => void;
+}
+//#endregion
