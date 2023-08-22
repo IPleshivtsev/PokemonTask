@@ -63,9 +63,11 @@ export interface IPokemonDataResponse {
 //#endregion
 
 //#region PropsModels
-export interface IListProps {
+export interface IContextProps {
+  count: number;
   setCount: (a: number) => void;
   currentPage: number;
+  setCurrentPage: (a: number) => void;
 }
 
 export interface ICardProps {
@@ -80,11 +82,5 @@ export interface IDetailsDialogProps {
 export interface ICollapseBlockProps {
   title: string;
   elements: Array<JSX.Element>;
-}
-
-export interface IPaginationProps {
-  count: number;
-  currentPage: number;
-  setCurrentPage: (a: number) => void;
 }
 //#endregion

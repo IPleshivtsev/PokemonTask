@@ -1,4 +1,4 @@
-import { IPaginationProps } from "../../auxilary/Interfaces";
+import { useContext } from "react";
 import {
   MovePageButton,
   NumberPageButton,
@@ -6,12 +6,10 @@ import {
   PaginationButtonsBlockDiv,
   PaginationCountBlockDiv,
 } from "./styled";
+import { PokemonContext } from "../../pages/home/home";
 
-export function Pagination({
-  count,
-  currentPage,
-  setCurrentPage,
-}: IPaginationProps) {
+export function Pagination() {
+  const { count, currentPage, setCurrentPage } = useContext(PokemonContext);
   const maxPageNumber = Math.ceil(count / 20);
 
   function CreatePaginationNumberButtons() {
