@@ -8,7 +8,7 @@ import {
   TitleDiv,
 } from "./styled";
 
-export function CollapseBlock({ title, elements }: ICollapseBlockProps) {
+export function CollapseBlock({children, title }: ICollapseBlockProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
@@ -17,7 +17,9 @@ export function CollapseBlock({ title, elements }: ICollapseBlockProps) {
         <ArrowMoreImg $isCollapsed={isCollapsed} />
         <TitleDiv>{title}</TitleDiv>
       </TitleBlockDiv>
-      <ElementsBlockDiv $isCollapsed={isCollapsed}>{elements}</ElementsBlockDiv>
+      <ElementsBlockDiv $isCollapsed={isCollapsed}>
+        <>{children}</>
+      </ElementsBlockDiv>
     </CollapseBlockDiv>
   );
 }

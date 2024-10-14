@@ -20,6 +20,7 @@ export async function GetPokemonNames(
         if (status !== 200) {
           return Promise.reject(`${status}: ${statusText}`);
         }
+        
         return Promise.resolve({
           count: data.count,
           pokemonNames: data.results.map(({ name }) => {

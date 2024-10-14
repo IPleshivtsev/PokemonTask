@@ -80,7 +80,7 @@ export interface IDetailsDialogProps {
 }
 
 export interface ICollapseBlockProps {
+  children: JSX.Element|JSX.Element[];
   title: string;
-  elements: Array<JSX.Element>;
 }
 //#endregion

@@ -13,7 +13,7 @@ import {
   ModalTitleH3,
   PokemonDetailsBlockDiv,
   PokemonDetailsModalDiv,
-  PokemonSpriteBlock
+  PokemonSpriteBlock,
 } from "./styled";
 import { PokemonImg } from "../../auxilary/commonStyled";
 
@@ -37,6 +37,7 @@ export function DetailsDialog({
       }
     };
     document.addEventListener("click", handleClickOutside, true);
+
     return () => {
       document.removeEventListener("click", handleClickOutside, true);
     };
@@ -64,41 +65,29 @@ export function DetailsDialog({
               <span>
                 <strong>Weight:</strong> {weight} hg
               </span>
-              <CollapseBlock
-                title={"Stats"}
-                elements={stats.map(({ stat, base_stat }) => {
-                  return (
-                    <span key={stat}>
-                      <strong>{setCapitalLetterForString(stat)}</strong>:{" "}
-                      {base_stat}
-                    </span>
-                  );
-                })}
-              />
-              <CollapseBlock
-                title={"Forms"}
-                elements={forms.map((name) => {
-                  return (
-                    <span key={name}>{setCapitalLetterForString(name)}</span>
-                  );
-                })}
-              />
-              <CollapseBlock
-                title={"Moves"}
-                elements={moves.map((name) => {
-                  return (
-                    <span key={name}>{setCapitalLetterForString(name)}</span>
-                  );
-                })}
-              />
-              <CollapseBlock
-                title={"Abilities"}
-                elements={abilities.map((name) => {
-                  return (
-                    <span key={name}>{setCapitalLetterForString(name)}</span>
-                  );
-                })}
-              />
+              <CollapseBlock title="Stats">
+                {stats.map(({ stat, base_stat }) => (
+                  <span key={stat}>
+                    <strong>{setCapitalLetterForString(stat)}</strong>:{" "}
+                    {base_stat}
+                  </span>
+                ))}
+              </CollapseBlock>
+              <CollapseBlock title="Forms">
+                {forms.map((name) => (
+                  <span key={name}>{setCapitalLetterForString(name)}</span>
+                ))}
+              </CollapseBlock>
+              <CollapseBlock title="Moves">
+                {moves.map((name) => (
+                  <span key={name}>{setCapitalLetterForString(name)}</span>
+                ))}
+              </CollapseBlock>
+              <CollapseBlock title="Abilities">
+                {abilities.map((name) => (
+                  <span key={name}>{setCapitalLetterForString(name)}</span>
+                ))}
+              </CollapseBlock>
             </PokemonDetailsBlockDiv>
           </ModalContentDiv>
         </ModalBodyDiv>

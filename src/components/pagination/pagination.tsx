@@ -14,6 +14,7 @@ export function Pagination() {
 
   function CreatePaginationNumberButtons() {
     const paginationNumberButtons: Array<() => JSX.Element> = [];
+
     for (let i = currentPage - 2; i <= currentPage + 2; i++) {
       if (i > 0 && i <= maxPageNumber) {
         paginationNumberButtons.push(() => {
@@ -34,6 +35,7 @@ export function Pagination() {
         });
       }
     }
+    
     return paginationNumberButtons.map((paginationNumberButtonFunc) => {
       return paginationNumberButtonFunc();
     });
